@@ -3,7 +3,7 @@ package carprunner;
 
 
 public class Values {
-    
+    public static boolean gotItem;
     public static boolean begin;
     public static boolean battleRun;
     public static boolean gameRunning;
@@ -12,7 +12,7 @@ public class Values {
         "UNSTABLE" , "PERCARIOUS" , "DISGRUNTLED" , "AGGREVATED"};
     String[] enemies = {"CRAWFISH" , "PERCH" , "SALMON" , "NAIL" , "STARFISH" , 
         "SQUID" , "BARRACUDA" , "TIGERSHARK" , "GREAT WHITE SHARK" , "ORCA"};
-    String invalidCmd = "Not a valid command";
+
 
     public static int minEnemyHealth;
     public static int minEnemyAttack;
@@ -25,11 +25,10 @@ public class Values {
     public static int health;
     public static int minAttackDamage;
     public static int maxAttackDamage;
-    public static int numAlgae;
-    public static int algaeHealAmt;
-    public static int algaeDropPerc;
+
     public static int enemyHealth;
     public static int damageTaken;
+    public static int damageDealt;
     public static int escapePerc;
 
     public static int adjective;
@@ -37,9 +36,9 @@ public class Values {
     //enemy #
     public static int enemyDiffNum;
     //enemy difficulty window
-
-        
-        
     
-    
+    public static int numAlgae;
+    public static int algaeHealAmt;
+    public static int algaeDropPerc;
 }
+
