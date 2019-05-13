@@ -98,8 +98,9 @@ public class Rapids {
                         value.gameRunning = false;
                         break;
                     }
-                else break;
-            }
+                else
+                    System.out.println("\n~~INVALID COMMAND~~\n");
+            }        
         }
 
     }
