@@ -17,6 +17,7 @@ public class BattleMode {
         System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
         while (value.battleRun == false) {
+            value.damageTaken = (int)(Math.random() * value.maxEnemyAttack);
 
             System.out.println("\tYour HP: " + value.health);
             System.out.println("\t" + value.enemyAdj[value.adjective] + " " 
@@ -35,14 +36,14 @@ public class BattleMode {
                 case "Tail Spin":
                 case "tail spin":
                 case "TAIL SPIN":
-                    int damageDealt = value.minAttackDamage + (int)(Math.random() * value.maxAttackDamage);
+                    value.damageDealt = value.minAttackDamage + (int)(Math.random() * value.maxAttackDamage);
 
-                    value.enemyHealth -= damageDealt;
+                    value.enemyHealth -= value.damageDealt;
                     System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println("             You spin with all your might!");
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                     System.out.println("\t The " + value.enemyAdj[value.adjective] + " "
-                            + value.enemies[value.enemy] + " is hit for " + damageDealt);
+                            + value.enemies[value.enemy] + " is hit for " + value.damageDealt);
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
                     if(value.enemyHealth > 0) {
@@ -68,22 +69,30 @@ public class BattleMode {
                             
                             if (value.health > value.maxPlayerHealth) {
                                 value.health = value.maxPlayerHealth;
+                                System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 System.out.println("\n\tHealth restored to full");
                                 System.out.println("\tYour Hp: " + value.health);
                                 System.out.println("\tYou have " + value.numAlgae + " algae left!");
+                                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                             }
                             else {
+                                System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 System.out.println("\tYour HP is restored by " + value.algaeHealAmt);
                                 System.out.println("\tYour HP is now " + value.health);
-                            System.out.println("\tYou have " + value.numAlgae + " algae left");
+                                System.out.println("\tYou have " + value.numAlgae + " algae left");
+                                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                             }
                         }
                         else{
+                            System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             System.out.println("\tYou cannot heal any more HP!");
+                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                         }
                     }
                     else{
+                        System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("\n\tNo algae left!");
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
                     }   
                     break;
@@ -102,18 +111,17 @@ public class BattleMode {
                     break;
                     }
                     else {
-                        System.out.println("\tYou try to swim away, but the " + value.enemyAdj[value.adjective] +
-                                " " + value.enemies[value.enemy] + " chases you down and attacks!");
-
-                        value.damageTaken = (int)(Math.random() * value.maxEnemyAttack);
                         value.health -= value.damageTaken;
-
+                        System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("You try to swim away, but the " + value.enemyAdj[value.adjective] +
+                                " " + value.enemies[value.enemy] + "\n chases you down and attacks!");
                         System.out.println("\t " + value.enemyAdj[value.adjective] + " " + value.enemies[value.enemy] + 
                                 " hits you for " + value.damageTaken + "\n\tYour HP is now " + value.health);
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                         break;
                     }
                 default: {
-                    System.out.println("\t " + value.invalidCmd);
+                    System.out.println("\n~~INVALID COMMAND~~\n");
 
                 }
 
@@ -122,8 +130,10 @@ public class BattleMode {
         }
 
         if(value.health < 1) {
+            System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             System.out.println("Your limp body, bruised and battered, "
                     + "\nsinks to the deep dark depths of the Sea");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             value.battleRun = true;
             value.gameRunning = true;
         }
