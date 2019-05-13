@@ -7,6 +7,7 @@ public class CarpRunner {
 
         Values value = new Values();
         
+        //Keeps the game running and asks for inputs until the game is shut off
         while (value.gameRunning == false) {
             if(value.begin == false) {
                 GameBegin begin = new GameBegin();
@@ -17,6 +18,7 @@ public class CarpRunner {
 //////////////////////////////////LOAD GAME LOCATIONS//////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////
         
+            //determines which location your player is in
             switch(value.location) {
                 
                 
@@ -34,8 +36,17 @@ public class CarpRunner {
                      break;
                 }
                 
+                case 3: {
+                    //Waterfall (1st BOSS)
+                    Waterfall water = new Waterfall();
+                    water.waterfall();
+                    break;
+                }
+                
             }
         } 
+        
+    //GAME OVER screen once the game has ended
     System.out.println("\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -48,4 +59,3 @@ public class CarpRunner {
 }
 
     
-
