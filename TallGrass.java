@@ -43,29 +43,31 @@ public class TallGrass {
             switch(command) {
                 case "status":
                 case "Status":
-                case "STATUS":
+                case "STATUS": {
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println("##  HP: " + value.health);
                     System.out.println("##  Level: " + value.playerLevel);
                     System.out.println("##  Location: Tall Grass");
                     System.out.println("##  Algae: " + value.numAlgae);
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                }
                 break;
 
                 case "look":
                 case "Look":
-                case "LOOK":
+                case "LOOK": {
                     System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println("\tThe water is raging. Who "
                             + "knows where these currents\n\t"
                             + "will bring you or if you will survive!"
                             + "\n\tOnly one direction to SWIM!");
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                }
                 break;
 
                 case "swim":
                 case "Swim":
-                case "SWIM":
+                case "SWIM": {
                     System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println("\t You leave the safety of the grass and\n\timmediately, "
@@ -74,11 +76,12 @@ public class TallGrass {
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
                     value.location++;
                     value.battleRun = false;
+                }
                 break;
 
                 case "reset":
                 case "Reset":
-                case "RESET":
+                case "RESET": {
                     System.out.println("Are you sure you want to RESET your game?"
                             + "\n\tENTER 1 FOR YES\n\tENTER 2 FOR NO");
                     int reset = cmd.nextInt();
@@ -92,13 +95,17 @@ public class TallGrass {
                         System.out.println("************************************************************\n\n\n\n\n\n\n");
                         value.begin = false;
                         value.gameRunning = false;
-                        break;
-                    }
-                else break;
+                    }                        
+                    break;
+                
+                }        
+                default: {
+                    System.out.println("\n~~INVALID COMMAND~~\n");
+                }
             }
-
         }
         
     }
     
 }
+
